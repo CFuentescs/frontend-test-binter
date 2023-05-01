@@ -1,8 +1,12 @@
 //Constantes
 import {
+    getCount
+} from '../../service/home/home'
+
+import {
     HOME_MESSAGE as MSG_HOME
 } from '../../constants/message'
-import axios from "axios";
+
 export const initializer = () => {}
 
 export const actions = {
@@ -75,9 +79,7 @@ export const getCounts = (dispatch) => {
             messageInfo: messageError,
         })
     }
-    const url = 'http://localhost:8080/counter'
-
-    return axios.post(url, {timeout: 900})
+    return getCount()
         .then(handleSuccessfully)
         .catch(handlesError)
 }

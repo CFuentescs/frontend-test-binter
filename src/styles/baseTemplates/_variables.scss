@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;500;600;700&display=swap');
+
+$font_family: 'Mulish', 'Lato', sans-serif;
+$font_light: 200;
+$font_regular: 400;
+$font_lightbold: 500;
+$font_semibold: 600;
+$font_bold: 700;
+$font_extra_large: 21px;
+$font_large: 18px;
+$font_high: 16px;
+$font_medium: 14px;
+$font_small: 12px;
+$font_extra_small: 10px;
+
+$padding_small: 8px;
+$padding_medium: 16px;
+$padding_large: 24px;
+
+$blue_primary: #001a72;
+$blue_link: #0042cc;
+$dark_blue: #001459;
+$light_blue_hover: #d3e5f8;
+$dark_font: #4e4e4e;
+$grey_font: #888888;
+$placeholder_font: #999999;
+$grey_background: #f9f9f9;
+$light_blue_background: #edf2f7;
+$grey_border: #e6eaee;
+$dark_grey_border: #b7b7b7;
+$grey_paragraph: #757575;
+$white: #ffffff;
+$black: #000000;
+$gray: #424242;
+$light_grey_font: #616161;
+$light_grey_line: #ebebeb;
+$light_grey_color: #e8e8e8;
+$hover_background_color: #f2f5f8;
+$modal_background_color: rgba(0, 0, 0, 0.5);
+$light_blue: rgba(0, 79, 139, 0.5);
+$header_grey_line: rgba(151, 151, 151, 0.34);
+$alert_color: #ffe2e5;
+$alert_border_color: #dc3545;
+$error-color: #ab000d;
+$red_color: #d90d39;
+$red_button_hover: #b10a2e;
+$orange_red_color: #e85e00;
+$grey_color: #f4f4f4;
+$soft_grey_color: #efefef;
+$light_grey_divider_color: #e6e6e6;
+$border_inputs: #767676;
+$footer_information_text: #444b54;
+$filter_background: #f7f7f7;
+$warning_background: #feefca;
+$warning_color: #ab4400;
+$error_light_red_color: #fecbca;
+
+$responsive_breakpoint: 0px;
+$input_max_width: 450px;
+
+$url_image: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e";

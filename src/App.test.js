@@ -1,16 +1,27 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import store from './store';
-import App from './App';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import App from './App'
+import history from './history'
 
-test('renders learn react link', () => {
-  const { getByText } = render(
-    <Provider store>
-      <App />
-    </Provider>
-  );
+jest.mock(
+    './containers/HomeContainers/HomeContainer',
+    () => () => <div>homeContainer</div>,
+)
 
-    // eslint-disable-next-line testing-library/prefer-screen-queries
-  expect(getByText(/learn/i)).toBeInTheDocument();
-});
+describe('app tests', () => {
+    it('renders main container route as root', () => {
+        history.push('/')
+        render(<App />)
+
+        const mainContainer = screen.queryByText('homeContainer')
+
+        expect(mainContainer).not.toBeNull()
+    })
+
+    it('redirects to home in root route', () => {
+        history.push('/')
+        render(<App />)
+
+        expect(window.top.location.pathname).toEqual('/')
+    })
+})

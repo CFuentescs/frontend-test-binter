@@ -1,0 +1,5 @@
+@mixin customizedLoader($width, $height, $margins : 0 0 0 0 ) {
+  margin: $margins;
+  width: $width;
+  height: $height;
+}

@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`home Test renders correctly 1`] = `
+<Fragment>
+  <div
+    className="App homeComponent-view"
+  >
+    <br />
+    <Container
+      className="bg-light"
+      fluid={true}
+    >
+      <Row>
+        <Col>
+          <h3>
+             (id:
+            )
+          </h3>
+        </Col>
+        <Col>
+          <Button
+            onClick={[Function]}
+            variant="primary"
+          >
+            Refrescar
+          </Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <div />
+        </Col>
+      </Row>
+      <LoaderDialog
+        message=""
+        open={false}
+        title=""
+      />
+    </Container>
+  </div>
+</Fragment>
+`;
+
+exports[`home Test renders correctly enzyme 1`] = `
+<Fragment>
+  <div
+    className="App homeComponent-view"
+  >
+    <br />
+    <Container
+      className="bg-light"
+      fluid={true}
+    >
+      <Row>
+        <Col>
+          <h3>
+             (id:
+            )
+          </h3>
+        </Col>
+        <Col>
+          <Button
+            onClick={[Function]}
+            variant="primary"
+          >
+            Refrescar
+          </Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <div />
+        </Col>
+      </Row>
+      <LoaderDialog
+        message=""
+        open={false}
+        title=""
+      />
+    </Container>
+  </div>
+</Fragment>
+`;

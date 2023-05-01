@@ -11,6 +11,7 @@ import BootstrapTable from "react-bootstrap-table-next";
 import {columns_Home} from "../Config/ConfigHome";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import LoaderDialog from '../Loader/LoaderDialog';
+import {connect} from "react-redux";
 
 
 /*
@@ -21,7 +22,7 @@ import LoaderDialog from '../Loader/LoaderDialog';
 *
 *       onRefresh : FUNCION PARA RECARGAR LA TABLA CON NUEVOS ELEMENTOS DEL BACKEND
 * */
-class Home extends Component {
+export class homeComponents extends Component {
     constructor(props) {
         super(props)
         const {getRequestCount} = this.props
@@ -37,38 +38,40 @@ class Home extends Component {
     render() {
         const isRanking = (this.props.isData.ranking || []).length
         return (
-            <div className="App" >
-                <br />
-                <Container fluid className="bg-light">
-                    <Row>
-                        <Col><h3>{this.props.isData.title} (id:{this.props.isData.id})</h3></Col>
-                        <Col><Button variant="primary" onClick={() =>this.onRefresh()}>Refrescar</Button></Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            {isRanking !== 0? (
-                                <BootstrapTable keyField='id' data={this.props.isData.ranking} columns={ columns_Home } pagination={ paginationFactory() } />
-                            ):(
-                                <div></div>
-                            )}
-                        </Col>
-                    </Row>
-                    <LoaderDialog
-                        open={this.props.isProcess.open}
-                        title={this.props.isProcess.title}
-                        message={this.props.isProcess.message}
-                    />
-                </Container>
-            </div>
+            <Fragment>
+                <div className="App homeComponent-view" >
+                    <br />
+                    <Container fluid className="bg-light">
+                        <Row>
+                            <Col><h3>{this.props.isData.title} (id:{this.props.isData.id})</h3></Col>
+                            <Col><Button variant="primary" onClick={() =>this.onRefresh()}>Refrescar</Button></Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                {isRanking !== 0? (
+                                    <BootstrapTable keyField='id' data={this.props.isData.ranking} columns={ columns_Home } pagination={ paginationFactory() } />
+                                ):(
+                                    <div></div>
+                                )}
+                            </Col>
+                        </Row>
+                        <LoaderDialog
+                            open={this.props.isProcess.open}
+                            title={this.props.isProcess.title}
+                            message={this.props.isProcess.message}
+                        />
+                    </Container>
+                </div>
+            </Fragment>
         );
     }
 }
-Home.propTypes = {
+homeComponents.propTypes = {
     isError: PropTypes.object,
     isProcess: PropTypes.object,
     isLoading: PropTypes.bool,
     isMessageInfo: PropTypes.object,
-    isData: PropTypes.object,
+    isData: PropTypes.array,
     getRequestCount: PropTypes.func,
     getOnOpen: PropTypes.func,
     getOnClose: PropTypes.func,
@@ -77,4 +80,4 @@ Home.propTypes = {
     modal: PropTypes.object,
 }
 
-export default Home;
+export default homeComponents;

@@ -1,15 +1,15 @@
 import {connect} from 'react-redux'
-import home from '../../components/Home/homeComponents'
-import * as homeModule from '../../modules/HomeModule/homeModule'
+import HomeComponents from '../../components/Home/HomeComponents'
+import * as HomeModule from '../../modules/HomeModule/homeModule'
 
 const mapStateToProps =(state) => ({
-    isProcess: homeModule.getProcess(state),
-    isLoading: homeModule.getLoading(state),
-    isError: homeModule.getError(state),
-    isMessageInfo: homeModule.getMessageInfo(state),
-    isData: homeModule.getHomeData(state),
-    modal: homeModule.getModal(state),
-    transactions: homeModule.getTransactions(state),
+    isProcess: HomeModule.getProcess(state),
+    isLoading: HomeModule.getLoading(state),
+    isError: HomeModule.getError(state),
+    isMessageInfo: HomeModule.getMessageInfo(state),
+    isData: HomeModule.getHomeData(state),
+    modal: HomeModule.getModal(state),
+    transactions: HomeModule.getTransactions(state),
 })
 
 /*
@@ -22,19 +22,19 @@ const mapStateToProps =(state) => ({
 * */
 const mapDispatchToProps = (dispatch) => ({
     getRequestCount: (request)=>{
-        homeModule.getCounts(dispatch)
+        HomeModule.getCounts(dispatch)
     },
     getOnClose: (request) =>{
-        homeModule.onClose(dispatch)
+        HomeModule.onClose(dispatch)
     },
     getOnOpen: (request) =>{
-        homeModule.onOpen(dispatch)
+        HomeModule.onOpen(dispatch)
     },
     onModal: (modal) =>{
-        homeModule.onModal(dispatch, modal)
+        HomeModule.onModal(dispatch, modal)
     },
     onclearMessage:() => {
-        homeModule.clearMessageInfo(dispatch)
+        HomeModule.clearMessageInfo(dispatch)
     },
 })
-export default connect (mapStateToProps, mapDispatchToProps)(home)
+export default connect (mapStateToProps, mapDispatchToProps)(HomeComponents)
