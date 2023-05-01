@@ -1,58 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import React, { StrictMode } from 'react';
 import './App.css';
+import history from './history';
+import {ViewportProvider} from "./Viewport";
+import Home from "./containers/HomeContainers/HomeContainer";
+import {Provider} from "react-redux";
+import store from './store';
 
+/*
+* CODIGO EN RESPUESTA A WORD COUNTER (DESAFIO BANCO INTERNACIONAL)
+*
+* AUTOR: CARLOS PATRICIO FUENTES CORTES
+* RUT: 18.676.359-9
+*
+* EN ESTE CODIGO SE PUEDE VISUALIZAR SOLO EL RESULTADO DEL CONTEO DE LAS PALABRAS,
+* ADEMAS SE PUEDE VISUALIZAR SU ARQUITECTURA ES COMPONENTS-CONTAINERS-MODULES
+* NO SE CREO UNA CARPETA DE SERVICE YA QUE, NO POSEO NECESIDAD DE HACER MULTIPLES LLAMADAS A UN SERVIDOR O SOLUCIONAS TEMAS DE API-KEY
+*
+* ESTRUCTURA DE EJECUCIÓN:
+*   - APP.JS
+*       -CONTAINERS
+*       - COMPONENTS AND MODULE
+*
+*
+*  SE DEBE TENER CUENTA QUE SE UTILIZO DIFERENTES HERRAMIENTAS DE FRONT, PARA SU DEMOSTRACIÓN TANTO COMO MIU A BOOTSTRAP.
+* */
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+      <StrictMode>
+        <ViewportProvider>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <Routes history={history}>
+                        <Route exact path="/" element={<Home/>} />
+                    </Routes>
+                </BrowserRouter>
+            </Provider>
+        </ViewportProvider>
+      </StrictMode>
+  )
 }
-
-export default App;
+export default App
