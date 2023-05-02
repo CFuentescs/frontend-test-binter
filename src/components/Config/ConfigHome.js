@@ -1,11 +1,11 @@
 export const columns_Home = [{
     dataField: 'position',
-    text: 'Product ID'
+    text: 'POSITIONS'
 }, {
     dataField: 'word',
-    text: 'Product Name'
+    text: 'WORDS'
 }, {
     dataField: 'ocurrences',
-    text: 'Product Price'
+    text: 'OCURRENCES'
 }];
 
