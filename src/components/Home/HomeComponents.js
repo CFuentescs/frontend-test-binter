@@ -48,7 +48,9 @@ const sizePerPageRenderer = ({
         }
     </div>
 );
-
+const options = {
+    sizePerPageRenderer
+};
 export class homeComponents extends Component {
     constructor(props) {
         super(props)
