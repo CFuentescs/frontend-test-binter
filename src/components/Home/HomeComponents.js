@@ -1,8 +1,6 @@
 import React, { Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import {head_home} from '../Structure/Home'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -13,6 +11,11 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 import LoaderDialog from '../Loader/LoaderDialog';
 import {connect} from "react-redux";
 
+//CSS
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 /*
 *  home, archivo de "agrupación de elementos" para su uso
@@ -22,6 +25,30 @@ import {connect} from "react-redux";
 *
 *       onRefresh : FUNCION PARA RECARGAR LA TABLA CON NUEVOS ELEMENTOS DEL BACKEND
 * */
+const sizePerPageRenderer = ({
+                                 options,
+                                 currSizePerPage,
+                                 onSizePerPageChange
+                             }) => (
+    <div role="group" style={{'textAlign':'left'}}>
+        {
+            options.map((option) => {
+                const isSelect = currSizePerPage === `${option.page}`;
+                return (
+                    <button
+                        key={ option.text }
+                        type="button"
+                        onClick={ () => onSizePerPageChange(option.page) }
+                        className={ `btn ${isSelect ? 'btn-secondary' : 'btn-primary-outline'}` }
+                    >
+                        { option.text }
+                    </button>
+                );
+            })
+        }
+    </div>
+);
+
 export class homeComponents extends Component {
     constructor(props) {
         super(props)
@@ -49,7 +76,7 @@ export class homeComponents extends Component {
                         <Row>
                             <Col>
                                 {isRanking !== 0? (
-                                    <BootstrapTable keyField='id' data={this.props.isData.ranking} columns={ columns_Home } pagination={ paginationFactory() } />
+                                    <BootstrapTable keyField='id' data={this.props.isData.ranking} columns={ columns_Home } pagination={ paginationFactory(options) } />
                                 ):(
                                     <div></div>
                                 )}
