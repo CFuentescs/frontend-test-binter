@@ -8,4 +8,4 @@ export const columns_Home = [{
     dataField: 'ocurrences',
     text: 'OCURRENCES'
 }];
-
+ 
